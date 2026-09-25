@@ -92,22 +92,65 @@ with tab_skills:
     with col_chart:
         # Gráfico Interativo com Plotly
         skills_data = {
-            'Competência': ['Python', 'SQL / Bancos Relacionais', 'Docker & DevOps', 'Machine Learning & IA', 'Visão Computacional', 'APIs REST / Django', 'Redes & Infraestrutura'],
-            'Nível de Domínio (%)': [95, 90, 85, 80, 80, 85, 95],
-            'Categoria': ['Backend/Dados', 'Dados', 'Infra/DevOps', 'IA/Dados', 'IA/Dados', 'Backend/Dados', 'Infra/DevOps']
-        }
+    'Competência': [
+        'Python',
+        'SQL / Bancos Relacionais',
+        'APIs REST / Django',
+        'Docker & DevOps',
+        'Git & GitHub',
+        'Machine Learning & IA',
+        'Visão Computacional',
+        'Redes & Infraestrutura',
+        'Power BI'
+    ],
+
+    'Nível de Domínio': [
+        'Avançado',
+        'Avançado',
+        'Intermediário',
+        'Intermediário',
+        'Intermediário',
+        'Intermediário',
+        'Intermediário',
+        'Avançado',
+        'Basico'
+    ],
+
+    'Nível': [
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        1
+    ],
+
+    'Categoria': [
+        'Backend/Dados',
+        'Dados',
+        'Backend/Dados',
+        'Infra/DevOps',
+        'Desenvolvimento',
+        'IA/Dados',
+        'IA/Dados',
+        'Infra/DevOps',
+        'Dados'
+    ]
+}
         df_skills = pd.DataFrame(skills_data)
         
         fig = px.bar(
-            df_skills, 
-            x='Nível de Domínio (%)', 
-            y='Competência', 
-            orientation='h',
-            color='Categoria',
-            text='Nível de Domínio (%)',
-            title='Nível de Proficiência por Tecnologia',
-            color_discrete_sequence=px.colors.qualitative.Prism
-        )
+    df_skills,
+    x='Nível',
+    y='Competência',
+    orientation='h',
+    color='Categoria',
+    text='Nível de Domínio',
+    color_discrete_sequence=px.colors.qualitative.Prism
+)
         fig.update_layout(yaxis={'categoryorder':'total ascending'}, height=400)
         st.plotly_chart(fig, use_container_width=True)
 
